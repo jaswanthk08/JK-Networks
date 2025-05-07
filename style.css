@@ -194,7 +194,7 @@ p {
 	height: 2px;
 	width: 30px;
 	position: relative;
-	background-color: black;
+	background-color: WHITE;
 	z-index: -1;
 }
 
@@ -205,7 +205,7 @@ p {
 	height: 100%;
 	width: 100%;
 	left: 0;
-	background-color: black;
+	background-color: white;
 	transition: 0.3s ease;
 	transition-property: top, bottom;
 }
@@ -230,7 +230,7 @@ p {
 
 /* Hero Section */
 #hero {
-	background-image: url('bg.jpeg');
+	background-image: url(./img/bg.jpeg);
 	background-size: cover;
 	background-position: top center;
 	position: relative;
@@ -256,15 +256,37 @@ p {
 	justify-content: flex-start;
 }
 
+/* Existing keyframes */
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+
+@keyframes text_reveal_name {
+	100% {
+		color: crimson;
+		font-weight: 500;
+	}
+}
+
+/* New class triggers */
+.reveal-text {
+	animation: text_reveal 1s ease forwards;
+}
+
+.reveal-text-name {
+	animation: text_reveal_name 1s ease forwards;
+}
+
 #hero h1 {
 	font-size: 3rem;
+	font-size: 4rem;
 	display: block;
 	width: fit-content;
-	font-size: 4rem;
 	position: relative;
 	color: transparent;
-	animation: text_reveal 0.5s ease forwards;
-	animation-delay: 1s;
+	animation-delay: 0s;
 }
 
 #hero h1:nth-child(1) {
@@ -276,8 +298,24 @@ p {
 }
 
 #hero h1:nth-child(3) {
-	animation: text_reveal_name 0.5s ease forwards;
 	animation-delay: 3s;
+}
+
+@keyframes text_reveal_box {
+	0% {
+		width: 0;
+		left: 0;
+	}
+
+	50% {
+		width: 100%;
+		left: 0;
+	}
+
+	100% {
+		width: 0;
+		left: 100%;
+	}
 }
 
 #hero h1 span {
@@ -295,8 +333,12 @@ p {
 	height: 100%;
 	width: 0;
 	background-color: crimson;
-	animation: text_reveal_box 1s ease;
+	pointer-events: none;
 	animation-delay: 0.5s;
+}
+
+.reveal-animate {
+	animation: text_reveal_box 1s ease;
 }
 
 #hero h1:nth-child(1) span {
@@ -345,7 +387,7 @@ p {
 	flex-direction: column;
 	padding: 30px;
 	border-radius: 10px;
-	background-image: url(img-1.jpg);
+	background-image: url(./img/img-1.jpg);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
@@ -386,82 +428,7 @@ p {
 
 /* End Services Section */
 
-/* Projects section */
-#projects .projects {
-	flex-direction: column;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 100px 0;
-}
 
-#projects .projects-header h1 {
-	margin-bottom: 50px;
-}
-
-#projects .all-projects {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-
-#projects .project-item {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 80%;
-	margin: 20px auto;
-	overflow: hidden;
-	border-radius: 10px;
-}
-
-#projects .project-info {
-	padding: 30px;
-	flex-basis: 50%;
-	height: 100%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	flex-direction: column;
-	color: black;
-}
-
-#projects .project-info h1 {
-	font-size: 4rem;
-	font-weight: 500;
-}
-
-#projects .project-info h2 {
-	font-size: 1.8rem;
-	font-weight: 500;
-	margin-top: 10px;
-}
-
-#projects .project-info p {
-	color: black;
-}
-
-#projects .project-img {
-	flex-basis: 50%;
-	height: 300px;
-	overflow: hidden;
-	position: relative;
-	border-radius: 15%;
-}
-
-#projects .project-img:after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	opacity: 0.7;
-}
-
-
-/* End Projects section */
 
 /* About Section */
 #about .about {
